@@ -36,8 +36,8 @@ var openAiConfig = app.Services.GetRequiredService<IOptions<OpenAIConfig>>();
 ArgumentException.ThrowIfNullOrEmpty(openAiConfig.Value.ApiKey, nameof(openAiConfig.Value.ApiKey));
 ArgumentException.ThrowIfNullOrEmpty(openAiConfig.Value.ChatModelId, nameof(openAiConfig.Value.ChatModelId));
 
-#pragma warning disable SKEXP0011 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-#pragma warning disable SKEXP0003 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 var memoryWithCustomDb = new MemoryBuilder()
     .WithOpenAITextEmbeddingGeneration(
         modelId: openAiConfig.Value.ChatModelId,
@@ -45,8 +45,8 @@ var memoryWithCustomDb = new MemoryBuilder()
     .WithMemoryStore(MemoryStoresExtensions.CreateSamplePostgresMemoryStore(app.Configuration))
     .Build();
 
-#pragma warning restore SKEXP0003 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-#pragma warning restore SKEXP0011 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning restore SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning restore SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
 app.MapDefaultEndpoints();
 

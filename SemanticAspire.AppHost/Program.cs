@@ -1,8 +1,11 @@
+using Aspire.Hosting;
+using Aspire.Hosting.ApplicationModel;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
-var cache = builder.AddRedisContainer("cache");
+var cache = builder.AddRedis("cache");
 
-var db = builder.AddPostgresContainer("postgres")
+var db = builder.AddPostgres("postgres")
         .WithAnnotation(new ContainerImageAnnotation
         {
             Image = "ankane/pgvector",

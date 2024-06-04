@@ -21,12 +21,12 @@ app.MapDefaultEndpoints();
 
 var openAiConfig = app.Services.GetRequiredService<IOptions<OpenAIConfig>>();
 
-#pragma warning disable SKEXP0012 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 var kernel = Kernel.CreateBuilder()
     .AddOpenAITextToImage(openAiConfig.Value.ApiKey)
     .AddOpenAIChatCompletion(openAiConfig.Value.ChatModelId, openAiConfig.Value.ApiKey)
     .Build();
-#pragma warning restore SKEXP0012 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning restore SKEXP0010 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();
@@ -34,7 +34,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-#pragma warning disable SKEXP0002 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 app.MapGet("/example1/dallE", async (string text,HttpClient client, CancellationToken cancellationToken)=>
 {
     var dallE = kernel.GetRequiredService<ITextToImageService>();
@@ -50,5 +50,5 @@ app.MapGet("/example1/dallE", async (string text,HttpClient client, Cancellation
     .WithDescription("Generates an image from text using the dallE model")
     .WithOpenApi();
 
-#pragma warning restore SKEXP0002 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning restore SKEXP0001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 app.Run();

@@ -13,8 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.1" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="8.0.1" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.1" />
+  </ItemGroup>
+	
+  <ItemGroup>
     <ProjectReference Include="..\SemanticAspire.AgentsApiService\SemanticAspire.AgentsApiService.csproj" />
-    <ProjectReference Include="..\SemanticAspire.ApiService\SemanticAspire.ApiService.csproj" />
+    <ProjectReference Include="..\SemanticAspire.ApiService\SemanticAspire.ApiService.csproj" />    
     <ProjectReference Include="..\SemanticAspire.ArgumentsApiService\SemanticAspire.ArgumentsApiService.csproj" />
     <ProjectReference Include="..\SemanticAspire.BingAndGooglePluginsApiService\SemanticAspire.BingAndGooglePluginsApiService.csproj" />
     <ProjectReference Include="..\SemanticAspire.ConversationSummaryPluginApiService\SemanticAspire.ConversationSummaryPluginApiService.csproj" />
@@ -26,10 +32,6 @@
     <ProjectReference Include="..\SemanticAspire.SemanticMemoryApiService\SemanticAspire.SemanticMemoryApiService.csproj" />
     <ProjectReference Include="..\SemanticAspire.TemplateLanguageApiService\SemanticAspire.TemplateLanguageApiService.csproj" />
     <ProjectReference Include="..\SemanticAspire.Web\SemanticAspire.Web.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.1.23557.2" />
   </ItemGroup>
 
 </Project>
